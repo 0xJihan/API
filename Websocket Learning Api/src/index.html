@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is a title</title>
+</head>
+<body>
+<h1 id="title">
+    Socket Api Project
+</h1>
+
+
+<label>
+    <input id="edName" type="text">
+</label>
+
+<button>Send Data</button>
+
+<h3 id="result">Received data will be shown here</h3>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    let socket = io();
+
+    socket.on('broadcast',function (data) {
+        document.getElementById('title').innerText = data
+    });
+
+    socket.on('normal',function (data) {
+        document.getElementById('result').innerText = data
+    });
+
+
+
+</script>
+</body>
+</html>
